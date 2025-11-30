@@ -13,8 +13,8 @@ using Workshop.Services;
 namespace Workshop.Forms
 {
     public partial class EntityGridForm<TEntity, TDto> : Form
-      where TEntity : class
-      where TDto : class, IEntityDto, new()
+        where TEntity : class
+        where TDto : class, IEntityDto, new()
     {
         private readonly IEntityService<TEntity, TDto> _service;
 
@@ -27,40 +27,100 @@ namespace Workshop.Forms
 
         private void Reload()
         {
-            dataGridView1.DataSource = _service.GetAll();
+            try
+            {
+                dataGridView1.DataSource = _service.GetAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Ошибка при загрузке данных: {ex.Message}",
+                    "Ошибка базы данных",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                // Можно установить пустой источник данных
+                dataGridView1.DataSource = new List<TDto>();
+            }
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var dto = new TDto();
-            var editForm = new EntityEditForm<TDto>(dto);
-
-            if (editForm.ShowDialog() == DialogResult.OK)
+            try
             {
-                _service.Add(dto);
-                Reload();
+                var dto = new TDto();
+                var editForm = new EntityEditForm<TDto>(dto);
+
+                if (editForm.ShowDialog() == DialogResult.OK)
+                {
+                    _service.Add(dto);
+                    Reload();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Ошибка при добавлении: {ex.Message}",
+                    "Ошибка базы данных",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow?.DataBoundItem is TDto dto)
+            try
             {
-                var editForm = new EntityEditForm<TDto>(dto);
-                if (editForm.ShowDialog() == DialogResult.OK)
+                if (dataGridView1.CurrentRow?.DataBoundItem is TDto dto)
                 {
-                    _service.Update(dto);
-                    Reload();
+                    var editForm = new EntityEditForm<TDto>(dto);
+                    if (editForm.ShowDialog() == DialogResult.OK)
+                    {
+                        _service.Update(dto);
+                        Reload();
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Ошибка при редактировании: {ex.Message}",
+                    "Ошибка базы данных",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentRow?.DataBoundItem is TDto dto)
             {
-                _service.Delete(dto.Id);
-                Reload();
+
+                var result = MessageBox.Show(
+                    $"Вы уверены, что хотите удалить",
+                    "Подтверждение удаления",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning,
+                    MessageBoxDefaultButton.Button2);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        _service.Delete(dto.Id); // Теперь принимает object
+                        Reload();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(
+                            $"Ошибка при удалении: {ex.Message}",
+                            "Ошибка",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                }
             }
         }
     }

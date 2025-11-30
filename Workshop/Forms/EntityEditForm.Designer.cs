@@ -3,8 +3,8 @@ using Workshop.DTO;
 
 namespace Workshop.Forms
 {
-    partial class EntityEditForm<T> : Form
-    where T : class, IEntityDto, new()
+    public partial class EntityEditForm<T> : Form
+        where T : class, IEntityDto, new()
     {
         /// <summary>
         /// Required designer variable.

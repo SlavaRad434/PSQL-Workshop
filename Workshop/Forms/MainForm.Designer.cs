@@ -34,6 +34,11 @@
             this.машиныToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panelMain = new System.Windows.Forms.Panel();
+            this.бригадаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.персоналToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.неисправностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ремонтыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.запчастиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +46,12 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.мастерскаяToolStripMenuItem,
-            this.машиныToolStripMenuItem});
+            this.машиныToolStripMenuItem,
+            this.бригадаToolStripMenuItem,
+            this.персоналToolStripMenuItem,
+            this.неисправностиToolStripMenuItem,
+            this.ремонтыToolStripMenuItem,
+            this.запчастиToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -54,6 +64,7 @@
             this.мастерскаяToolStripMenuItem.Name = "мастерскаяToolStripMenuItem";
             this.мастерскаяToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.мастерскаяToolStripMenuItem.Text = "Мастерская";
+            this.мастерскаяToolStripMenuItem.Click += new System.EventHandler(this.btnWorkshops_Click);
             // 
             // машиныToolStripMenuItem
             // 
@@ -73,6 +84,41 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(448, 253);
             this.panelMain.TabIndex = 2;
+            // 
+            // бригадаToolStripMenuItem
+            // 
+            this.бригадаToolStripMenuItem.Name = "бригадаToolStripMenuItem";
+            this.бригадаToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.бригадаToolStripMenuItem.Text = "Бригада";
+            this.бригадаToolStripMenuItem.Click += new System.EventHandler(this.btnBrigades_Click);
+            // 
+            // персоналToolStripMenuItem
+            // 
+            this.персоналToolStripMenuItem.Name = "персоналToolStripMenuItem";
+            this.персоналToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.персоналToolStripMenuItem.Text = "Персонал";
+            this.персоналToolStripMenuItem.Click += new System.EventHandler(this.btnPersonnel_Click);
+            // 
+            // неисправностиToolStripMenuItem
+            // 
+            this.неисправностиToolStripMenuItem.Name = "неисправностиToolStripMenuItem";
+            this.неисправностиToolStripMenuItem.Size = new System.Drawing.Size(105, 20);
+            this.неисправностиToolStripMenuItem.Text = "Неисправности";
+            this.неисправностиToolStripMenuItem.Click += new System.EventHandler(this.btnDefects_Click);
+            // 
+            // ремонтыToolStripMenuItem
+            // 
+            this.ремонтыToolStripMenuItem.Name = "ремонтыToolStripMenuItem";
+            this.ремонтыToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.ремонтыToolStripMenuItem.Text = "Ремонты";
+            this.ремонтыToolStripMenuItem.Click += new System.EventHandler(this.btnRepairs_Click);
+            // 
+            // запчастиToolStripMenuItem
+            // 
+            this.запчастиToolStripMenuItem.Name = "запчастиToolStripMenuItem";
+            this.запчастиToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.запчастиToolStripMenuItem.Text = "Запчасти";
+            this.запчастиToolStripMenuItem.Click += new System.EventHandler(this.btnParts_Click);
             // 
             // MainForm
             // 
@@ -99,5 +145,10 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.ToolStripMenuItem машиныToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem бригадаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem персоналToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem неисправностиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ремонтыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem запчастиToolStripMenuItem;
     }
 }

@@ -4,8 +4,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using Workshop.DTO;
-using Workshop.Models;
 using Workshop.Mapper;
+using Workshop.Models;
 
 namespace Workshop.Services
 {
@@ -13,58 +13,67 @@ namespace Workshop.Services
         where TEntity : class
         where TDto : IEntityDto
     {
-        protected abstract int GetEntityId(TEntity entity); // Должен быть реализован в наследниках
+        protected abstract object GetEntityId(TEntity entity);
 
         protected readonly AutoRepairContext _db;
         protected readonly IEntityMapper<TEntity, TDto> _mapper;
         protected readonly DbSet<TEntity> _set;
 
-        protected EntityServiceBase(
-            AutoRepairContext db,
-            IEntityMapper<TEntity, TDto> mapper)
+        public EntityServiceBase(AutoRepairContext db, IEntityMapper<TEntity, TDto> mapper)
         {
             _db = db;
             _mapper = mapper;
-            _set = _db.Set<TEntity>(); // Получаем DbSet автоматически
+            _set = _db.Set<TEntity>();
         }
 
-        public List<TDto> GetAll() =>
-            _set.AsNoTracking()
-                .AsEnumerable()
+        public virtual List<TDto> GetAll()
+        {
+            return _set.AsNoTracking()
+                .ToList()
                 .Select(e => _mapper.ToDto(e))
                 .ToList();
+        }
 
-        public List<TDto> Find(Expression<Func<TEntity, bool>> predicate) =>
-            _set.Where(predicate)
+        public virtual List<TDto> Find(Expression<Func<TEntity, bool>> predicate)
+        {
+            return _set.Where(predicate)
                 .AsNoTracking()
-                .AsEnumerable()
+                .ToList()
                 .Select(e => _mapper.ToDto(e))
                 .ToList();
+        }
 
-        public void Add(TDto dto)
+        public virtual void Add(TDto dto)
         {
             var entity = _mapper.CreateEntity(dto);
             _set.Add(entity);
             _db.SaveChanges();
-            dto.Id = GetEntityId(entity);
+
+            var id = GetEntityId(entity);
+            dto.Id = id;
         }
 
-        public void Update(TDto dto)
+        public virtual void Update(TDto dto)
         {
-            var entity = _set.Find(dto.Id);
+            var entity = FindEntityById(dto.Id);
             if (entity == null) return;
 
             _mapper.UpdateEntity(dto, entity);
             _db.SaveChanges();
         }
 
-        public void Delete(int id)
+        public virtual void Delete(object id)
         {
-            var entity = _set.Find(id);
+            var entity = FindEntityById(id);
             if (entity == null) return;
 
             _set.Remove(entity);
             _db.SaveChanges();
+        }
+
+        private TEntity FindEntityById(object id)
+        {
+            return _set.Find(id);
         }
     }
 }

@@ -9,7 +9,7 @@ using Workshop.DTO;
 namespace Workshop.Forms
 {
     public partial class EntityEditForm<T> : Form
-    where T : class, IEntityDto, new()
+        where T : class, IEntityDto, new()
     {
         private readonly T _entity;
         private readonly Dictionary<PropertyInfo, Control> _controls
@@ -24,7 +24,7 @@ namespace Workshop.Forms
 
         private void BuildForm()
         {
-            Text = $"Edit {typeof(T).Name}";
+            Text = $"Редактировать {typeof(T).Name}";
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
@@ -59,7 +59,7 @@ namespace Workshop.Forms
                 row++;
             }
 
-            var btnSave = new Button { Text = "Save", AutoSize = true };
+            var btnSave = new Button { Text = "Сохранить", AutoSize = true };
             btnSave.Click += BtnSave_Click;
 
             panel.Controls.Add(btnSave, 1, row);

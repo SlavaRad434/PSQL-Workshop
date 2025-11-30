@@ -8,6 +8,11 @@ namespace Workshop.DTO
 {
     public interface IEntityDto
     {
-        int Id { get; set; }
+        object Id { get; set; }
+    }
+
+    public interface IEntityDto<T> : IEntityDto
+    {
+        new T Id { get; set; }
     }
 }

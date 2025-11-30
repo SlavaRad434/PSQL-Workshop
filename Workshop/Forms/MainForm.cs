@@ -28,6 +28,65 @@ namespace Workshop.Forms
                 gridForm.ShowDialog();
             }
         }
+        private void btnWorkshops_Click(object sender, EventArgs e)
+        {
+            using (var db = new AutoRepairContext())
+            {
+                var service = new WorkshopService(db);
+                var gridForm = new EntityGridForm<Models.Workshop, WorkshopDto>(service);
+                gridForm.ShowDialog();
+            }
+        }
+
+        private void btnBrigades_Click(object sender, EventArgs e)
+        {
+            using (var db = new AutoRepairContext())
+            {
+                var service = new BrigadeService(db);
+                var gridForm = new EntityGridForm<Brigade, BrigadeDto>(service);
+                gridForm.ShowDialog();
+            }
+        }
+
+        private void btnPersonnel_Click(object sender, EventArgs e)
+        {
+            using (var db = new AutoRepairContext())
+            {
+                var service = new PersonnelService(db);
+                var gridForm = new EntityGridForm<Personnel, PersonnelDto>(service);
+                gridForm.ShowDialog();
+            }
+        }
+
+        private void btnDefects_Click(object sender, EventArgs e)
+        {
+            using (var db = new AutoRepairContext())
+            {
+                var service = new DefectService(db);
+                var gridForm = new EntityGridForm<Defect, DefectDto>(service);
+                gridForm.ShowDialog();
+            }
+        }
+
+        private void btnRepairs_Click(object sender, EventArgs e)
+        {
+            using (var db = new AutoRepairContext())
+            {
+                var service = new RepairService(db);
+                var gridForm = new EntityGridForm<Repair, RepairDto>(service);
+                gridForm.ShowDialog();
+            }
+        }
+
+        private void btnParts_Click(object sender, EventArgs e)
+        {
+            using (var db = new AutoRepairContext())
+            {
+                var service = new PartService(db);
+                var gridForm = new EntityGridForm<Part, PartDto>(service);
+                gridForm.ShowDialog();
+            }
+        }
 
 
 

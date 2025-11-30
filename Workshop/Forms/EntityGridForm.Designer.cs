@@ -4,8 +4,8 @@ using Workshop.DTO;
 namespace Workshop.Forms
 {
     public partial class EntityGridForm<TEntity, TDto> : Form
-      where TEntity : class
-      where TDto : class, IEntityDto, new()
+        where TEntity : class
+        where TDto : class, IEntityDto, new()
     {
         /// <summary>
         /// Required designer variable.

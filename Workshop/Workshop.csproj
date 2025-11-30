@@ -93,6 +93,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\CarDto.cs" />
+    <Compile Include="Mapper\RepairMapper.cs" />
+    <Compile Include="Mapper\WorkshopMapper.cs" />
     <Compile Include="DTO\IEntityDto.cs" />
     <Compile Include="Forms\EntityEditForm.cs">
       <SubType>Form</SubType>
@@ -126,6 +128,7 @@
     <Compile Include="Models\Workshop.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BrigadeService.cs" />
     <Compile Include="Services\CarService.cs" />
     <Compile Include="Services\EntityServiceBase.cs" />
     <Compile Include="Services\IEntityService.cs" />

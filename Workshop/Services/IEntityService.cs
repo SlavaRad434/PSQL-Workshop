@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 using Workshop.DTO;
 
 namespace Workshop.Services
@@ -14,12 +11,8 @@ namespace Workshop.Services
     {
         List<TDto> GetAll();
         List<TDto> Find(Expression<Func<TEntity, bool>> predicate);
-
         void Add(TDto dto);
         void Update(TDto dto);
-        void Delete(int id);
+        void Delete(object id);
     }
-
-
-
 }

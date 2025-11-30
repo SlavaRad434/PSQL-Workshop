@@ -5,26 +5,34 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Workshop.Models
 {
-    public class Brigade
-    {
-        public Brigade()
+        [Table("brigades")]
+        public class Brigade
         {
-            Personnel = new HashSet<Personnel>();
-            Repairs = new HashSet<Repair>();
+            public Brigade()
+            {
+                Personnel = new HashSet<Personnel>();
+                Repairs = new HashSet<Repair>();
+            }
+
+            [Key]
+            [Column("brigade_id")]
+            public int BrigadeId { get; set; }
+
+            [Column("workshop_id")]
+            public int WorkshopId { get; set; }
+
+            [Required, MaxLength(100)]
+            [Column("name")]
+            public string Name { get; set; }
+
+            [ForeignKey("WorkshopId")]
+            
+            public virtual Workshop Workshop { get; set; }
+
+            
+            public virtual ICollection<Personnel> Personnel { get; set; }
+
+            
+            public virtual ICollection<Repair> Repairs { get; set; }
         }
-
-        [Key]
-        public int BrigadeId { get; set; }
-
-        public int WorkshopId { get; set; }
-
-        [Required, MaxLength(100)]
-        public string Name { get; set; }
-
-        [ForeignKey("WorkshopId")]
-        public virtual Workshop Workshop { get; set; }
-
-        public virtual ICollection<Personnel> Personnel { get; set; }
-        public virtual ICollection<Repair> Repairs { get; set; }
-    }
 }
