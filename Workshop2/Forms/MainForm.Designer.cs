@@ -37,6 +37,18 @@ namespace Workshop2.Forms
             this.сотрудникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.бригадыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.автомобилиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.неисправностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.деталиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.мастерскиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.редактирToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.добавитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.редактироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRepairs)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -100,7 +112,12 @@ namespace Workshop2.Forms
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.представленияToolStripMenuItem,
-            this.сотрудникиToolStripMenuItem});
+            this.сотрудникиToolStripMenuItem,
+            this.бригадыToolStripMenuItem,
+            this.автомобилиToolStripMenuItem1,
+            this.неисправностиToolStripMenuItem,
+            this.деталиToolStripMenuItem,
+            this.мастерскиеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 24);
@@ -153,7 +170,10 @@ namespace Workshop2.Forms
             // сотрудникиToolStripMenuItem
             // 
             this.сотрудникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьToolStripMenuItem});
+            this.открытьToolStripMenuItem,
+            this.добавитьToolStripMenuItem,
+            this.редактирToolStripMenuItem,
+            this.удалитьToolStripMenuItem});
             this.сотрудникиToolStripMenuItem.Name = "сотрудникиToolStripMenuItem";
             this.сотрудникиToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
             this.сотрудникиToolStripMenuItem.Text = "Сотрудники";
@@ -162,7 +182,7 @@ namespace Workshop2.Forms
             // 
             this.добавитьToolStripMenuItem.CheckOnClick = true;
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.добавитьToolStripMenuItem.Text = "Добавить";
             this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.btnAddPersonal_Click);
             // 
@@ -174,6 +194,86 @@ namespace Workshop2.Forms
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Удалить";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // бригадыToolStripMenuItem
+            // 
+            this.бригадыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.открытьToolStripMenuItem1,
+            this.добавитьToolStripMenuItem1,
+            this.редактироватьToolStripMenuItem,
+            this.удалитьToolStripMenuItem1});
+            this.бригадыToolStripMenuItem.Name = "бригадыToolStripMenuItem";
+            this.бригадыToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.бригадыToolStripMenuItem.Text = "Бригады";
+            // 
+            // автомобилиToolStripMenuItem1
+            // 
+            this.автомобилиToolStripMenuItem1.Name = "автомобилиToolStripMenuItem1";
+            this.автомобилиToolStripMenuItem1.Size = new System.Drawing.Size(89, 20);
+            this.автомобилиToolStripMenuItem1.Text = "Автомобили";
+            // 
+            // неисправностиToolStripMenuItem
+            // 
+            this.неисправностиToolStripMenuItem.Name = "неисправностиToolStripMenuItem";
+            this.неисправностиToolStripMenuItem.Size = new System.Drawing.Size(105, 20);
+            this.неисправностиToolStripMenuItem.Text = "Неисправности";
+            // 
+            // деталиToolStripMenuItem
+            // 
+            this.деталиToolStripMenuItem.Name = "деталиToolStripMenuItem";
+            this.деталиToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.деталиToolStripMenuItem.Text = "Детали";
+            // 
+            // мастерскиеToolStripMenuItem
+            // 
+            this.мастерскиеToolStripMenuItem.Name = "мастерскиеToolStripMenuItem";
+            this.мастерскиеToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.мастерскиеToolStripMenuItem.Text = "Мастерские";
+            // 
+            // редактирToolStripMenuItem
+            // 
+            this.редактирToolStripMenuItem.CheckOnClick = true;
+            this.редактирToolStripMenuItem.Name = "редактирToolStripMenuItem";
+            this.редактирToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.редактирToolStripMenuItem.Text = "Редактировать";
+            // 
+            // удалитьToolStripMenuItem
+            // 
+            this.удалитьToolStripMenuItem.CheckOnClick = true;
+            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.удалитьToolStripMenuItem.Text = "Удалить";
+            // 
+            // открытьToolStripMenuItem
+            // 
+            this.открытьToolStripMenuItem.CheckOnClick = true;
+            this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.открытьToolStripMenuItem.Text = "Открыть";
+            // 
+            // открытьToolStripMenuItem1
+            // 
+            this.открытьToolStripMenuItem1.Name = "открытьToolStripMenuItem1";
+            this.открытьToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.открытьToolStripMenuItem1.Text = "Открыть";
+            // 
+            // добавитьToolStripMenuItem1
+            // 
+            this.добавитьToolStripMenuItem1.Name = "добавитьToolStripMenuItem1";
+            this.добавитьToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.добавитьToolStripMenuItem1.Text = "Добавить";
+            // 
+            // редактироватьToolStripMenuItem
+            // 
+            this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
+            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.редактироватьToolStripMenuItem.Text = "Редактировать";
+            // 
+            // удалитьToolStripMenuItem1
+            // 
+            this.удалитьToolStripMenuItem1.Name = "удалитьToolStripMenuItem1";
+            this.удалитьToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.удалитьToolStripMenuItem1.Text = "Удалить";
             // 
             // MainForm
             // 
@@ -208,5 +308,17 @@ namespace Workshop2.Forms
         private ToolStripMenuItem сотрудникиToolStripMenuItem;
         private ToolStripMenuItem добавитьToolStripMenuItem;
         private Button btnDelete;
+        private ToolStripMenuItem бригадыToolStripMenuItem;
+        private ToolStripMenuItem автомобилиToolStripMenuItem1;
+        private ToolStripMenuItem неисправностиToolStripMenuItem;
+        private ToolStripMenuItem деталиToolStripMenuItem;
+        private ToolStripMenuItem мастерскиеToolStripMenuItem;
+        private ToolStripMenuItem редактирToolStripMenuItem;
+        private ToolStripMenuItem открытьToolStripMenuItem;
+        private ToolStripMenuItem удалитьToolStripMenuItem;
+        private ToolStripMenuItem открытьToolStripMenuItem1;
+        private ToolStripMenuItem добавитьToolStripMenuItem1;
+        private ToolStripMenuItem редактироватьToolStripMenuItem;
+        private ToolStripMenuItem удалитьToolStripMenuItem1;
     }
 }
